@@ -1,4 +1,5 @@
 export type UserConfig = {
+  rootPath?: string
   docsDir: string
   homepage?: string
   theme?: string

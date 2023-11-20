@@ -79,6 +79,7 @@
                         throw new Error("'docsDir' is invalid.");
                     }
                     userConfig.renderedDOMId = userConfig.renderedDOMId || "hut-body";
+                    userConfig.rootPath = userConfig.rootPath || "/";
                     return [2 /*return*/, userConfig];
             }
         });
@@ -9010,10 +9011,6 @@
         .use(markdownItContainer, 'tips')
         .use(markdownItContainer, 'warning');
 
-    var getRootPath = (function () {
-        return window.location.pathname;
-    });
-
     var LoadTheme = (function (userConfig) { return __awaiter(void 0, void 0, void 0, function () {
         var bodyRenderDOMId, targetDOM, themeNameFromQueryString, themeNameFromConfig, themeRootPath, linkTag;
         var _a;
@@ -9030,7 +9027,7 @@
                 .slice(1).map(function (e) { return e.split('='); })
                 .filter(function (e) { return (e === null || e === void 0 ? void 0 : e[0]) === 'theme'; })[0]) === null || _a === void 0 ? void 0 : _a[1];
             themeNameFromConfig = userConfig.theme;
-            themeRootPath = getRootPath() +
+            themeRootPath = window.location.pathname +
                 ((themeNameFromQueryString && 'themes/' + themeNameFromQueryString)
                     || (themeNameFromConfig && 'themes/' + themeNameFromConfig));
             linkTag = loadCSS(themeRootPath + '/index.css');

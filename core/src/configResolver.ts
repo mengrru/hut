@@ -15,6 +15,7 @@ export default async (configPath: string) => {
   }
 
   userConfig.renderedDOMId = userConfig.renderedDOMId || "hut-body";
+  userConfig.rootPath = userConfig.rootPath || "/";
 
   return userConfig;
 }

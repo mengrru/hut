@@ -1,5 +1,4 @@
 import { UserConfig } from "./types/UserConfig.d"
-import getRootPath from "./getRootPath";
 
 export default async (userConfig: UserConfig) => {
   const bodyRenderDOMId = userConfig.renderedDOMId;
@@ -20,7 +19,7 @@ export default async (userConfig: UserConfig) => {
 
   const themeNameFromConfig = userConfig.theme;
 
-  const themeRootPath = getRootPath() +
+  const themeRootPath = window.location.pathname +
     (
       (themeNameFromQueryString && 'themes/' + themeNameFromQueryString)
       || (themeNameFromConfig && 'themes/' + themeNameFromConfig)
