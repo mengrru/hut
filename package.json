@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-core": "./node_modules/.bin/rollup -c core/rollup.config.js --bundleConfigAsCjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,10 +18,13 @@
   },
   "homepage": "https://github.com/mengrru/hut#readme",
   "devDependencies": {
+    "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-typescript": "^11.1.2",
     "@types/markdown-it": "^12.2.3",
     "@types/markdown-it-container": "^2.0.5",
     "rollup": "^3.26.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "tslib": "^2.6.0",
     "typescript": "^5.1.6"
   },
