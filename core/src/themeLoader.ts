@@ -1,4 +1,5 @@
 import { UserConfig } from "./types/UserConfig.d"
+import { setInnerHTML } from "./utils"
 
 export default async (userConfig: UserConfig) => {
   const bodyRenderDOMId = userConfig.renderedDOMId;
@@ -34,7 +35,7 @@ export default async (userConfig: UserConfig) => {
   return fetch(themeRootPath + '/body.html')
     .then(res => res.text())
     .then(data => {
-      document.getElementById(bodyRenderDOMId).innerHTML = data
+      setInnerHTML(document.getElementById(bodyRenderDOMId), data);
     })
     .catch((e) => { console.log(e); });
 }
